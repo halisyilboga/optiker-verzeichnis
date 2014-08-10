@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!-- This is the application.xml file intended for use with gradle, if you find it in your maven project, then that's a problem most likely. -->
+<application xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/application_6.xsd" version="6">
+  <display-name>ear</display-name>
+  <module>
+    <web>
+      <web-uri>webapp-1.0</web-uri>
+      <context-root>webapp</context-root>
+    </web>
+  </module>
+  <module>
+    <web>
+      <web-uri>admin-1.0</web-uri>
+      <context-root>admin</context-root>
+    </web>
+  </module>
+  <library-directory>lib</library-directory>
+</application>

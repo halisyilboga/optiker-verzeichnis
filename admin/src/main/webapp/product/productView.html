@@ -1,0 +1,6 @@
+
+<input ng-model="query"><a class="btn btn-default" href="#/product/new">Neu</a>
+
+<div ng-repeat="product in products | filter:query | orderBy:name"><a href="#/product/{{product.id}}">{{product.name}}</a></div>
+
+
