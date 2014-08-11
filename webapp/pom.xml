@@ -78,20 +78,10 @@
                     <!-- relative to src/main/webapp/, default: static -->
                     <jsSourceDirectory>static</jsSourceDirectory>
 
-                    <!-- example options usage to get verbose output in logs -->
+                    <!-- get verbose output in logs -->
                     <gruntOptions>
                         <gruntOption>--verbose</gruntOption>
                     </gruntOptions>
-
-                    <!-- example npm install env variable -->
-                    <npmEnvironmentVar>
-                        <PHANTOMJS_CDNURL>http://cnpmjs.org/downloads</PHANTOMJS_CDNURL>
-                    </npmEnvironmentVar>
-
-                    <!-- example options usage to filter variables in given resource -->
-                    <filteredResources>
-                        <filteredResource>maven-properties.json</filteredResource>
-                    </filteredResources>
 
                 </configuration>
                 <executions>
@@ -106,6 +96,18 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>2.5</version>
+                <configuration>
+                  <filesets>
+                    <fileset>
+                      <directory>target</directory>
+                      <directory>target-grunt</directory>
+                    </fileset>
+                  </filesets>
+                </configuration>
+              </plugin>
         </plugins>
     </build>
 </project>

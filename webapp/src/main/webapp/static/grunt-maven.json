@@ -1,0 +1,7 @@
+{
+	"projectRootPath": "../",
+    "targetPath": "../target/webapp-1.0",
+    "sourceDirectory": "src",
+    "jsSourceDirectory": "static",
+    "filteredFiles": []
+}
