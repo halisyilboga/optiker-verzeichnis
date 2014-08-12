@@ -4,24 +4,25 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
         
         gruntMavenProperties: grunt.file.readJSON('grunt-maven.json'),
-        
-        concat: {
-	      options: {
-	        separator: ';'
-	      },
-	      dist: {
-	        src: ['bower_components/**/*.js'],
-	        dest: 'dist/<%= pkg.name %>.js'
-	      }
-	    },
-	    
+
+        // copy bower components to dist
+        copy: {
+            main: {
+                files: [
+                    // flattens results to a single level
+                    {expand: true, flatten: true, src: ['bower_components/**/*.map', 'bower_components/**/*min.js', 'bower_components/**/*.gzip', 'bower_components/**/*.css'], dest: 'dist/', filter: 'isFile'}
+                ]
+            }
+        },
+
+        // uglify all from js directory
 	    uglify: {
 	      options: {
 	        banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
 	      },
 	      dist: {
 	        files: {
-	          'dist/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>']
+	          'dist/optiker-verzeichnis.min.js': ['js/*.js']
 	        }
 	      }
 	    },
@@ -44,7 +45,7 @@ module.exports = function(grunt) {
 
 		watch: {
 		    maven: {
-		      files: ['../src/main/webapp/static/*.js'],
+		      files: ['../src/main/webapp/static/**/*.js'],
 		      tasks: ['default'],
 		      options: {      			
     		  }
@@ -56,6 +57,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
-    grunt.registerTask('default', ['mavenPrepare','concat', 'uglify', 'mavenDist']);
+    grunt.registerTask('default', ['mavenPrepare', 'uglify', 'copy', 'mavenDist']);
 };

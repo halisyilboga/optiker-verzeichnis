@@ -14,7 +14,7 @@ public class Optician {
 
     protected String street;
 
-    protected Integer plz;
+    protected Integer postalcode;
 
     protected String city;
 
@@ -52,12 +52,12 @@ public class Optician {
         this.street = street;
     }
 
-    public Integer getPlz() {
-        return plz;
+    public Integer getPostalcode() {
+        return postalcode;
     }
 
-    public void setPlz(Integer plz) {
-        this.plz = plz;
+    public void setPostalcode(Integer postalcode) {
+        this.postalcode = postalcode;
     }
 
     public String getCity() {
@@ -115,30 +115,30 @@ public class Optician {
 
         Optician optician = (Optician) o;
 
-        if (city != null ? !city.equals(optician.city) : optician.city != null) return false;
-        if (country != null ? !country.equals(optician.country) : optician.country != null) return false;
-        if (email != null ? !email.equals(optician.email) : optician.email != null) return false;
-        if (fax != null ? !fax.equals(optician.fax) : optician.fax != null) return false;
-        if (name != null ? !name.equals(optician.name) : optician.name != null) return false;
-        if (phone != null ? !phone.equals(optician.phone) : optician.phone != null) return false;
-        if (plz != null ? !plz.equals(optician.plz) : optician.plz != null) return false;
-        if (street != null ? !street.equals(optician.street) : optician.street != null) return false;
-        if (website != null ? !website.equals(optician.website) : optician.website != null) return false;
+        if (!city.equals(optician.city)) return false;
+        if (!country.equals(optician.country)) return false;
+        if (!email.equals(optician.email)) return false;
+        if (!fax.equals(optician.fax)) return false;
+        if (!name.equals(optician.name)) return false;
+        if (!phone.equals(optician.phone)) return false;
+        if (!postalcode.equals(optician.postalcode)) return false;
+        if (!street.equals(optician.street)) return false;
+        if (!website.equals(optician.website)) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = name != null ? name.hashCode() : 0;
-        result = 31 * result + (street != null ? street.hashCode() : 0);
-        result = 31 * result + (plz != null ? plz.hashCode() : 0);
-        result = 31 * result + (city != null ? city.hashCode() : 0);
-        result = 31 * result + (country != null ? country.hashCode() : 0);
-        result = 31 * result + (phone != null ? phone.hashCode() : 0);
-        result = 31 * result + (fax != null ? fax.hashCode() : 0);
-        result = 31 * result + (email != null ? email.hashCode() : 0);
-        result = 31 * result + (website != null ? website.hashCode() : 0);
+        int result = name.hashCode();
+        result = 31 * result + street.hashCode();
+        result = 31 * result + postalcode.hashCode();
+        result = 31 * result + city.hashCode();
+        result = 31 * result + country.hashCode();
+        result = 31 * result + phone.hashCode();
+        result = 31 * result + fax.hashCode();
+        result = 31 * result + email.hashCode();
+        result = 31 * result + website.hashCode();
         return result;
     }
 
@@ -148,7 +148,7 @@ public class Optician {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", street='" + street + '\'' +
-                ", plz=" + plz +
+                ", postalcode=" + postalcode +
                 ", city='" + city + '\'' +
                 ", country='" + country + '\'' +
                 ", phone='" + phone + '\'' +

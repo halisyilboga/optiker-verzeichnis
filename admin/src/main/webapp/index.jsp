@@ -1,11 +1,11 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <!doctype html>
-<html lang="en" ng-app="klpvAdminApp">
+<html lang="en" ng-app="ovAdminApp">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>KLPV Admin Area</title>
+	<title>Admin Area</title>
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
 	<!-- Custom styles for this template -->
@@ -34,8 +34,7 @@
 			</div>
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="#/product">Produkte</a></li>
-					<li><a href="#shops">Händler</a></li>
+					<li class="active"><a href="#/optician">Optiker</a></li>
 					<li><a href="<%=com.google.appengine.api.users.UserServiceFactory.getUserService().createLogoutURL(request.getRequestURI())%>">Logout</a></li>
 				</ul>
 			</div>

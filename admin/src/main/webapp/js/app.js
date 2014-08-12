@@ -2,21 +2,21 @@
 
 /* App Module */
 
-var klpvAdminApp = angular.module('klpvAdminApp', [
+var ovAdminApp = angular.module('ovAdminApp', [
   'ngRoute',
-  'klpvAdminAppControllers'
+  'ovAdminAppControllers'
 ]);
 
-klpvAdminApp.config(['$routeProvider',
+ovAdminApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
-      when('/product', {
-        templateUrl: 'product/productView.html',
-        controller: 'ProductListCtrl'
+      when('/optician', {
+        templateUrl: 'optician/opticianView.html',
+        controller: 'OpticianListCtrl'
       }).
-      when('/product/:productId', {
-        templateUrl: 'product/productDetailsView.html',
-        controller: 'ProductDetailsCtrl'
+      when('/optician/:opticianId', {
+        templateUrl: 'optician/opticianDetailsView.html',
+        controller: 'OpticianDetailsCtrl'
       }).
       when('/dashboard', {
           templateUrl: 'dashboard.html',

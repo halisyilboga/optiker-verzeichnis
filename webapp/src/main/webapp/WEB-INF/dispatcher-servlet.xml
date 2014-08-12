@@ -8,9 +8,7 @@
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 
-	<bean id="productController" class="de.optikerverzeichnis.controller.OpticianController" />
-
-    <bean id="dispatchController" class="de.optikerverzeichnis.controller.DispatchController" />
+	<bean id="opticianController" class="de.optikerverzeichnis.controller.OpticianController" />
 
 	<mvc:annotation-driven />
 

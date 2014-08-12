@@ -1,0 +1,79 @@
+
+<form novalidate class="form-horizontal" role="form">
+	<button class="btn btn-default" ng-click="reset()">Neu</button>
+	<button class="btn btn-danger" ng-click="remove(user)">Löschen</button>
+	<button class="btn btn-success" ng-click="update(user)">Speichern</button>
+	
+	<div class="form-group">
+		<label class="col-sm-2 control-label">ID</label>
+		<div class="col-sm-10">
+			<p class="form-control-static">{{optician.id}}</p>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<label for="name" class="col-sm-2 control-label">Name</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="name" placeholder="Name" ng-model="optician.name">
+		</div>
+	</div>
+
+    <div class="form-group">
+        <label for="street" class="col-sm-2 control-label">Straße</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="street" placeholder="Straße" ng-model="optician.street">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="postalcode" class="col-sm-2 control-label">Postleitzahl</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="postalcode" placeholder="z.B. 72618" ng-model="optician.postalcode">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="city" class="col-sm-2 control-label">Stadt</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="city" placeholder="Stadt, z.B. Hamburg" ng-model="optician.city">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="country" class="col-sm-2 control-label">Land</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="country" placeholder="Land, z.B. Deutschland" ng-model="optician.country">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="phone" class="col-sm-2 control-label">Telefon</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="phone" placeholder="Telefon, z.B. +49 40 1231421123" ng-model="optician.phone">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="fax" class="col-sm-2 control-label">Telefax</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="fax" placeholder="Telefax, z.B. +49 40 1231421123" ng-model="optician.fax">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="email" class="col-sm-2 control-label">E-Mail</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="email" placeholder="E-Mail, hans@mustermann.de" ng-model="optician.email">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="website" class="col-sm-2 control-label">Website</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="website" placeholder="Website, www.xyz.de" ng-model="optician.website">
+        </div>
+    </div>
+
+    <button class="btn btn-success" ng-click="update(user)">Speichern</button>
+
+</form>
