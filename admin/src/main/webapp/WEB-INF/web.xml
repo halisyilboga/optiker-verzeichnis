@@ -6,7 +6,7 @@
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
-	
+
 	<!-- ContextWrapper, Turns off XML Validation in Production mode -->
 	<context-param>
 		<param-name>contextClass</param-name>
@@ -25,7 +25,18 @@
 		<url-pattern>/rest/*</url-pattern>
 	</servlet-mapping>
 
-	<!-- ObjectifyFilter, closes open transactions on Datastore -->
+    <servlet>
+        <servlet-name>upload</servlet-name>
+        <servlet-class>de.optikerverzeichnis.servlet.FileUploadServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>upload</servlet-name>
+        <url-pattern>/upload/*</url-pattern>
+    </servlet-mapping>
+
+    <!-- ObjectifyFilter, closes open transactions on Datastore -->
 	<filter>
 		<filter-name>ObjectifyFilter</filter-name>
 		<filter-class>com.googlecode.objectify.ObjectifyFilter</filter-class>
@@ -34,6 +45,10 @@
 		<filter-name>ObjectifyFilter</filter-name>
 		<url-pattern>/rest/*</url-pattern>
 	</filter-mapping>
+    <filter-mapping>
+        <filter-name>ObjectifyFilter</filter-name>
+        <url-pattern>/upload/*</url-pattern>
+    </filter-mapping>
 
 	<security-constraint>
 		<web-resource-collection>

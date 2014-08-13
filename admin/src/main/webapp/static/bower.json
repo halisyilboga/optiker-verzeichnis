@@ -1,0 +1,10 @@
+{
+    "name": "optiker-verzeichnis-admin",
+    "version": "1.0.0",
+    "dependencies": {
+        "angular": "~1.2.x",
+        "angular-route": "~1.2.x",
+        "ng-file-upload-shim" : "~1.6.5",
+        "ng-file-upload" : "~1.6.5"
+    }
+}

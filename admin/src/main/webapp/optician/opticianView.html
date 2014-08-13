@@ -1,6 +1,8 @@
 
 <input ng-model="query"><a class="btn btn-default" href="#/optician/new">Neu</a>
 
+<input ng-model="bulkupload" type="file" ng-file-select="onFileSelect($files)">
+
 <div ng-repeat="optician in opticians | filter:query | orderBy:name"><a href="#/optician/{{optician.id}}">{{optician.name}}</a></div>
 
 

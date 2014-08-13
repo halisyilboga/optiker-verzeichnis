@@ -68,6 +68,44 @@
 					</webResources>
 				</configuration>
 			</plugin>
+            <plugin>
+                <groupId>pl.allegro</groupId>
+                <artifactId>grunt-maven-plugin</artifactId>
+                <version>1.4.1</version>
+                <configuration>
+                    <!-- relative to src/main/webapp/, default: static -->
+                    <jsSourceDirectory>static</jsSourceDirectory>
+
+                    <!-- get verbose output in logs -->
+                    <gruntOptions>
+                        <gruntOption>--verbose</gruntOption>
+                    </gruntOptions>
+
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>create-resources</goal>
+                            <goal>npm</goal>
+                            <!-- or npm-offline if npm failure is not an option -->
+                            <goal>bower</goal>
+                            <goal>grunt</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>2.5</version>
+                <configuration>
+                    <filesets>
+                        <fileset>
+                            <directory>target</directory>
+                            <directory>target-grunt</directory>
+                        </fileset>
+                    </filesets>
+                </configuration>
+            </plugin>
 		</plugins>
 	</build>
 </project>

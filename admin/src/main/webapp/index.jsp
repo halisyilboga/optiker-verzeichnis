@@ -50,9 +50,10 @@
 
 	<script	src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script	src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	<script src="/lib/angular-1.2.20.min.js"></script>
-	<script src="/lib/angular-route-1.2.20.min.js"></script>
-	<script src="/js/app.js"></script>
-  	<script src="/js/controllers.js"></script>
+    <script src="/static/angular-file-upload-shim.min.js"></script>
+    <script src="/static/angular.min.js"></script>
+    <script src="/static/angular-file-upload.min.js"></script>
+    <script src="/static/angular-route.min.js"></script>
+	<script src="/static/optiker-verzeichnis-admin.min.js"></script>
 </body>
 </html>
