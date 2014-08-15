@@ -5,17 +5,16 @@
     <title>Optiker Verzeichnis</title>
     <link rel="stylesheet" href="css/ov.css">
     <script src="static/angular.min.js"></script>
+    <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
+    <script src='static/lodash.underscore.min.js'></script>
+    <script src='static/angular-google-maps.min.js'></script>
     <script src="static/optiker-verzeichnis.min.js"></script>
 </head>
 <body>
 
-<p>Nothing here {{'yet' + '!'}}</p>
-
-<h1>Optiker Verzeichnis</h1>
-
-<a href="">Optiker hinzufügen</a>
-
-<div ng-view></div>
+<div ng-controller="OptikerVerzeichnisCtrl">
+    <google-map center="map.center" zoom="map.zoom"></google-map>
+</div>
 
 </body>
 </html>

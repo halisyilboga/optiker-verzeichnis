@@ -4,11 +4,15 @@ import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 import com.googlecode.objectify.annotation.Index;
 
+import java.util.Date;
+
 @Entity
 public class Optician {
 
 	@Id
 	protected Long id;
+
+    protected Date createdAt;
 
 	protected String name;
 
@@ -216,6 +220,14 @@ public class Optician {
         this.website = website;
     }
 
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -225,25 +237,28 @@ public class Optician {
 
         if (Double.compare(optician.mapsLatitude, mapsLatitude) != 0) return false;
         if (Double.compare(optician.mapsLongitude, mapsLongitude) != 0) return false;
-        if (!city.equals(optician.city)) return false;
-        if (!country.equals(optician.country)) return false;
-        if (!email.equals(optician.email)) return false;
-        if (!fax.equals(optician.fax)) return false;
+        if (city != null ? !city.equals(optician.city) : optician.city != null) return false;
+        if (country != null ? !country.equals(optician.country) : optician.country != null) return false;
+        if (createdAt != null ? !createdAt.equals(optician.createdAt) : optician.createdAt != null) return false;
+        if (email != null ? !email.equals(optician.email) : optician.email != null) return false;
+        if (fax != null ? !fax.equals(optician.fax) : optician.fax != null) return false;
         if (mapsArea != null ? !mapsArea.equals(optician.mapsArea) : optician.mapsArea != null) return false;
         if (mapsCity != null ? !mapsCity.equals(optician.mapsCity) : optician.mapsCity != null) return false;
         if (mapsCountry != null ? !mapsCountry.equals(optician.mapsCountry) : optician.mapsCountry != null)
             return false;
-        if (!mapsDistrict.equals(optician.mapsDistrict)) return false;
+        if (mapsDistrict != null ? !mapsDistrict.equals(optician.mapsDistrict) : optician.mapsDistrict != null)
+            return false;
         if (mapsPostalCode != null ? !mapsPostalCode.equals(optician.mapsPostalCode) : optician.mapsPostalCode != null)
             return false;
         if (mapsState != null ? !mapsState.equals(optician.mapsState) : optician.mapsState != null) return false;
-        if (!mapsStreet.equals(optician.mapsStreet)) return false;
-        if (!mapsStreetNumber.equals(optician.mapsStreetNumber)) return false;
-        if (!name.equals(optician.name)) return false;
-        if (!phone.equals(optician.phone)) return false;
-        if (!postalcode.equals(optician.postalcode)) return false;
-        if (!street.equals(optician.street)) return false;
-        if (!website.equals(optician.website)) return false;
+        if (mapsStreet != null ? !mapsStreet.equals(optician.mapsStreet) : optician.mapsStreet != null) return false;
+        if (mapsStreetNumber != null ? !mapsStreetNumber.equals(optician.mapsStreetNumber) : optician.mapsStreetNumber != null)
+            return false;
+        if (name != null ? !name.equals(optician.name) : optician.name != null) return false;
+        if (phone != null ? !phone.equals(optician.phone) : optician.phone != null) return false;
+        if (postalcode != null ? !postalcode.equals(optician.postalcode) : optician.postalcode != null) return false;
+        if (street != null ? !street.equals(optician.street) : optician.street != null) return false;
+        if (website != null ? !website.equals(optician.website) : optician.website != null) return false;
 
         return true;
     }
@@ -252,18 +267,19 @@ public class Optician {
     public int hashCode() {
         int result;
         long temp;
-        result = name.hashCode();
-        result = 31 * result + street.hashCode();
-        result = 31 * result + postalcode.hashCode();
-        result = 31 * result + city.hashCode();
-        result = 31 * result + country.hashCode();
-        result = 31 * result + phone.hashCode();
-        result = 31 * result + fax.hashCode();
-        result = 31 * result + email.hashCode();
-        result = 31 * result + website.hashCode();
-        result = 31 * result + mapsStreetNumber.hashCode();
-        result = 31 * result + mapsStreet.hashCode();
-        result = 31 * result + mapsDistrict.hashCode();
+        result = createdAt != null ? createdAt.hashCode() : 0;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (street != null ? street.hashCode() : 0);
+        result = 31 * result + (postalcode != null ? postalcode.hashCode() : 0);
+        result = 31 * result + (city != null ? city.hashCode() : 0);
+        result = 31 * result + (country != null ? country.hashCode() : 0);
+        result = 31 * result + (phone != null ? phone.hashCode() : 0);
+        result = 31 * result + (fax != null ? fax.hashCode() : 0);
+        result = 31 * result + (email != null ? email.hashCode() : 0);
+        result = 31 * result + (website != null ? website.hashCode() : 0);
+        result = 31 * result + (mapsStreetNumber != null ? mapsStreetNumber.hashCode() : 0);
+        result = 31 * result + (mapsStreet != null ? mapsStreet.hashCode() : 0);
+        result = 31 * result + (mapsDistrict != null ? mapsDistrict.hashCode() : 0);
         result = 31 * result + (mapsArea != null ? mapsArea.hashCode() : 0);
         result = 31 * result + (mapsCity != null ? mapsCity.hashCode() : 0);
         result = 31 * result + (mapsState != null ? mapsState.hashCode() : 0);
@@ -280,6 +296,7 @@ public class Optician {
     public String toString() {
         return "Optician{" +
                 "id=" + id +
+                ", createdAt=" + createdAt +
                 ", name='" + name + '\'' +
                 ", street='" + street + '\'' +
                 ", postalcode=" + postalcode +
@@ -300,5 +317,26 @@ public class Optician {
                 ", mapsLongitude=" + mapsLongitude +
                 ", mapsLatitude=" + mapsLatitude +
                 '}';
+    }
+
+    public static String beautifyName(String name) {
+        name = name.toLowerCase();
+        StringBuffer stringBuffer = new StringBuffer(name);
+        boolean isBehindSpacer = true;
+        for (int i=0; i<stringBuffer.length(); i++) {
+
+            char currentChar = stringBuffer.charAt(i);
+
+            if (Character.isAlphabetic(currentChar) && isBehindSpacer) {
+                stringBuffer.replace(i,i+1, ""+Character.toUpperCase(stringBuffer.charAt(i)));
+                isBehindSpacer = false;
+            }
+
+            if (Character.isSpaceChar(currentChar) || '-' == currentChar) {
+                isBehindSpacer = true;
+            }
+
+        }
+        return stringBuffer.toString().replace("Gbr", "GbR").replace("Gmbh", "GmbH");
     }
 }

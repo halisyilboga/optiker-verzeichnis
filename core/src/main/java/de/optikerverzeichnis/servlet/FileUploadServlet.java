@@ -49,53 +49,19 @@ public class FileUploadServlet extends HttpServlet {
                     List<Optician> opticians = readOpticians(stream);
                     for (Optician optician : opticians) {
                         optician = adressValidationService.validateAdress(optician);
+                        optician.setName(Optician.beautifyName(optician.getName()));
+                        try {
+                            logger.info("wait...");
+                            Thread.sleep(1000); // sleep to get no trouble with service quota
+                        } catch (InterruptedException ie) {
+                            logger.error("uh... unexpected.", ie);
+                        }
                         OfyService.ofy().save().entity(optician).now();
                     }
                 }
             }
         } catch (Exception ex) {
             throw new ServletException(ex);
-        }
-    }
-
-    protected void service2(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        if (ServletFileUpload.isMultipartContent(req)) {
-
-            try {
-                ServletFileUpload upload = new ServletFileUpload();
-                List<FileItem> items = upload.parseRequest(req);
-
-
-                Iterator<FileItem> iter = items.iterator();
-                while (iter.hasNext()) {
-                    FileItem item = iter.next();
-
-                    if (!item.isFormField()) {
-
-                        String fieldName = item.getFieldName();
-                        String fileName = item.getName();
-                        String contentType = item.getContentType();
-                        boolean isInMemory = item.isInMemory();
-                        long sizeInBytes = item.getSize();
-
-                        AdressValidationService adressValidationService = new AdressValidationService();
-                        List<Optician> opticians = readOpticians(item.getInputStream());
-                        for (Optician optician : opticians) {
-                            try {
-                                Thread.sleep(1000); // sleep for 100 ms to get no trouble with service quota
-                            } catch (InterruptedException ie) {
-                                logger.error("uh... unexpected.", ie);
-                            }
-                            optician = adressValidationService.validateAdress(optician);
-                            OfyService.ofy().save().entity(optician).now();
-                        }
-
-                    }
-                }
-            } catch (FileUploadException fue) {
-                logger.error("Something went wrong on fileupload", fue);
-            }
-
         }
     }
 
@@ -110,7 +76,7 @@ public class FileUploadServlet extends HttpServlet {
                 logger.info("parsing line: " + line);
                 String[] fields = line.split("','");
                 Optician optician = new Optician();
-                optician.setName(fields[0]);
+                optician.setName(fields[0].substring(1));
                 optician.setStreet(fields[1]);
                 optician.setPostalcode(Integer.parseInt(fields[2]));
                 optician.setCity(fields[3]);

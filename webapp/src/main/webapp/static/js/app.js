@@ -2,5 +2,5 @@
 
 /* App Module */
 
-var klpvAdminApp = angular.module('OptikerVerzeichnisApp', []);
+var klpvAdminApp = angular.module('OptikerVerzeichnisApp', ['google-maps']);
 

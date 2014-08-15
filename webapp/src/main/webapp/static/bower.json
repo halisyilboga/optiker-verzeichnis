@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "dependencies": {
         "angular": "~1.2.x",
-        "angular-route": "~1.2.x"
+        "angular-route": "~1.2.x",
+        "angular-google-maps" : "~1.2.0"
     }
 }
