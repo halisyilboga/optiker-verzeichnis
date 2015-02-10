@@ -5,6 +5,3 @@ directory for opticians, used to evaluate the creation a real world JS-Frontend,
 
 
 
-this page will be implemented and supportted for professional SEO's
-
-https://developers.google.com/webmasters/ajax-crawling/?csw=1
